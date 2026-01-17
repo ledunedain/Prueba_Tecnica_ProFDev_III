@@ -1,0 +1,12 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: med_postgres
+    environment:
+      POSTGRES_DB: meddb
+      POSTGRES_USER: meduser
+      POSTGRES_PASSWORD: medpass
+    ports:
+      - "5432:5432"
+    volumes:
+      - ../db:/docker-entrypoint-initdb.d:ro
